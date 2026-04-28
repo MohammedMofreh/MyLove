@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1a0b1f">
+    <title>العد التنازلي لفرحنا · حبيبي وحبيبتي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="petals" id="petals" aria-hidden="true"></div>
+
+    <main class="stage" role="main">
+        <div class="brand">
+            <span class="line"></span>
+            <span>قِصَّتُنا · حُبُّنا · فَرَحُنا</span>
+            <span class="line"></span>
+        </div>
+
+        <div class="eyebrow">حفل زفافنا</div>
+
+        <h1 class="title">عدٌّ تنازليٌّ لأجملِ يومٍ في حياتنا</h1>
+
+        <p class="subtitle">
+            من يومِ التقتْ أرواحُنا في <strong class="rose">16 / 07 / 2025</strong>،
+            ونحن نعدُّ الأيّامَ معًا...
+            <br>
+            حتى يأتي موعدُنا مع الفرحِ يومَ <strong class="gold" id="wedding-date-text">01 / 10 / 2026</strong>
+        </p>
+
+        <section class="glass countdown-card" aria-label="العد التنازلي">
+            <div class="countdown" data-target="2026-10-01T00:00:00" data-start="2025-07-16T00:00:00" id="countdown">
+                <div class="unit">
+                    <span class="num" id="cd-days" aria-live="polite">000</span>
+                    <div class="label">يوم</div>
+                </div>
+                <div class="unit">
+                    <span class="num" id="cd-hours" aria-live="polite">00</span>
+                    <div class="label">ساعة</div>
+                </div>
+                <div class="unit">
+                    <span class="num" id="cd-minutes" aria-live="polite">00</span>
+                    <div class="label">دقيقة</div>
+                </div>
+                <div class="unit">
+                    <span class="num" id="cd-seconds" aria-live="polite">00</span>
+                    <div class="label">ثانية</div>
+                </div>
+            </div>
+
+            <div class="progress-wrap">
+                <div class="progress-meta">
+                    <span>رحلتُنا إلى الفرح</span>
+                    <span><strong id="cd-percent">0.0%</strong></span>
+                </div>
+                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="progress-bar" id="cd-bar" style="width: 0%;"></div>
+                </div>
+                <div class="progress-meta progress-meta-bottom">
+                    <span>مرّ <strong id="days-passed">0</strong> يوم منذ التقينا</span>
+                    <span>باقي <strong id="days-remaining">0</strong> يوم على فرحنا</span>
+                </div>
+            </div>
+
+            <p class="quote" id="quote">
+                في كلِّ نبضةٍ من قلبي اسمُكِ مكتوبٌ بالذهب، ومع كلِّ شروقٍ يقتربُ يومُنا الذي طالما حلمنا به.
+            </p>
+
+            <div class="celebration" id="celebration">
+                ✨ وصلنا · اليوم يومُنا · مباركٌ لنا الفرح ✨
+            </div>
+        </section>
+
+        <div class="signature">
+            صُنِعَ بـ <span class="heart">❤</span> لأجملِ قِصَّةٍ في الكون
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            const countdown = document.getElementById("countdown");
+            const target = new Date(countdown.dataset.target).getTime();
+            const startDate = new Date(countdown.dataset.start).getTime();
+
+            const elDays = document.getElementById("cd-days");
+            const elHours = document.getElementById("cd-hours");
+            const elMinutes = document.getElementById("cd-minutes");
+            const elSeconds = document.getElementById("cd-seconds");
+            const elPercent = document.getElementById("cd-percent");
+            const elBar = document.getElementById("cd-bar");
+            const elCelebrate = document.getElementById("celebration");
+            const elDaysPassed = document.getElementById("days-passed");
+            const elDaysRemaining = document.getElementById("days-remaining");
+            const progress = document.querySelector(".progress");
+            const petalsLayer = document.getElementById("petals");
+            const elQuote = document.getElementById("quote");
+
+            const quotes = [
+                "في كلِّ نبضةٍ من قلبي اسمُكِ مكتوبٌ بالذهب، ومع كلِّ شروقٍ يقتربُ يومُنا الذي طالما حلمنا به.",
+                "الحبُّ ليس أن نلتقي... بل أن نعِدَ بألّا نفترقَ، ويومَ الفرحِ هو ميثاقُنا.",
+                "أنتِ الدعاءُ الذي استُجيبَ، وأنتَ الحُلمُ الذي صارَ على بُعدِ أيامٍ.",
+                "كلُّ ثانيةٍ تمرّ، تُقرِّبُنا من قَدَرٍ كتبهُ اللهُ لنا قبلَ أن نلتقي.",
+                "سأعدُّ لكِ الأيامَ والساعاتِ، حتى يصيرَ الزمنُ نفسهُ شريكًا في فرحتِنا.",
+                "في يومِ فرحِنا سأنظرُ إليكِ وأقول: استحقّت كلُّ لحظةِ انتظارٍ هذه النهاية الجميلة.",
+                "ما أجملَ أن يكونَ للقلبِ موعدٌ، وأن يكونَ هذا الموعد... أنتِ."
+            ];
+
+            const symbols = ["❤", "❀", "✿", "❣", "♥", "✦"];
+            const colors = ["#ff7aa8", "#e84d83", "#f6d57a", "#ffc6dc", "#ffd9a8"];
+
+            const pad = (n, width) => String(Math.max(0, n)).padStart(width, "0");
+            const totalJourney = Math.max(1, target - startDate);
+            let lastSeconds = -1;
+            let quoteIndex = 0;
+
+            function updateCountdown() {
+                const now = Date.now();
+                const diff = target - now;
+                const daysPassed = Math.max(0, Math.floor((now - startDate) / 86400000));
+                const daysRemaining = Math.max(0, Math.ceil(diff / 86400000));
+                const percent = Math.max(0, Math.min(100, ((now - startDate) / totalJourney) * 100));
+
+                elDaysPassed.textContent = String(daysPassed);
+                elDaysRemaining.textContent = String(daysRemaining);
+                elPercent.textContent = percent.toFixed(1) + "%";
+                elBar.style.width = percent.toFixed(3) + "%";
+                progress.setAttribute("aria-valuenow", String(Math.round(percent)));
+
+                if (diff <= 0) {
+                    elDays.textContent = "000";
+                    elHours.textContent = "00";
+                    elMinutes.textContent = "00";
+                    elSeconds.textContent = "00";
+                    elBar.style.width = "100%";
+                    elPercent.textContent = "100.0%";
+                    elCelebrate.classList.add("on");
+                    launchConfetti();
+                    return false;
+                }
+
+                const days = Math.floor(diff / 86400000);
+                const hours = Math.floor((diff / 3600000) % 24);
+                const minutes = Math.floor((diff / 60000) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                elDays.textContent = pad(days, 3);
+                elHours.textContent = pad(hours, 2);
+                elMinutes.textContent = pad(minutes, 2);
+                elSeconds.textContent = pad(seconds, 2);
+
+                if (seconds !== lastSeconds) {
+                    elSeconds.classList.remove("tick");
+                    void elSeconds.offsetWidth;
+                    elSeconds.classList.add("tick");
+                    lastSeconds = seconds;
+                }
+
+                return true;
+            }
+
+            function spawnPetal(lifetimeMultiplier) {
+                const petal = document.createElement("span");
+                const duration = 5 + Math.random() * 5 * (lifetimeMultiplier || 1.8);
+
+                petal.className = "petal";
+                petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                petal.style.right = Math.random() * 100 + "vw";
+                petal.style.color = colors[Math.floor(Math.random() * colors.length)];
+                petal.style.fontSize = 0.9 + Math.random() * 1.6 + "rem";
+                petal.style.animationDuration = duration + "s";
+                petal.style.animationDelay = -Math.random() * duration + "s";
+                petalsLayer.appendChild(petal);
+
+                setTimeout(function () {
+                    petal.remove();
+                }, duration * 1000 + 500);
+            }
+
+            function launchConfetti() {
+                for (let i = 0; i < 80; i += 1) {
+                    spawnPetal(1);
+                }
+            }
+
+            function rotateQuotes() {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                elQuote.style.opacity = "0";
+                setTimeout(function () {
+                    elQuote.textContent = quotes[quoteIndex];
+                    elQuote.style.opacity = "1";
+                }, 600);
+            }
+
+            const petalCount = window.matchMedia("(max-width: 540px)").matches ? 14 : 26;
+            for (let i = 0; i < petalCount; i += 1) {
+                spawnPetal(1.8);
+            }
+
+            updateCountdown();
+            const timer = setInterval(function () {
+                if (!updateCountdown()) {
+                    clearInterval(timer);
+                }
+            }, 1000);
+
+            setInterval(spawnPetal, 1200);
+            setInterval(rotateQuotes, 7000);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+@model MyLove.Models.WeddingCountdownViewModel
+@{
+    ViewData["Title"] = "العدّ التنازلي لفرحنا";
+    var weddingIso = Model.WeddingDate.ToString("yyyy-MM-ddTHH:mm:ss");
+    var weddingArabic = Model.WeddingDate.ToString("dd / MM / yyyy");
+}
+
+<div class="aurora" aria-hidden="true"></div>
+<div class="stars" aria-hidden="true"></div>
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<main class="stage" role="main">
+
+    <div class="brand">
+        <span class="line"></span>
+        <span>قِصّـتُنـا · حُــبُّنـا · فَــرَحُــنــا</span>
+        <span class="line"></span>
+    </div>
+
+    <div class="eyebrow">حفل زفافنا</div>
+
+    <h1 class="title">عدٌّ تنازليٌّ لأجملِ يومٍ في حياتنا</h1>
+
+    <p class="subtitle">
+        من يومِ التقتْ أرواحُنا في <strong style="color: var(--rose-200);">16 / 07 / 2025</strong>،
+        ونحن نعدُّ الأيّامَ معاً…
+        <br />
+        حتى يأتي موعِدُنا مع الفرحِ يومَ <strong style="color: var(--gold-300);">@weddingArabic</strong>
+    </p>
+
+    <section class="glass countdown-card" aria-label="العدّ التنازلي">
+
+        <div class="countdown" data-target="@weddingIso" id="countdown">
+            <div class="unit">
+                <span class="num" id="cd-days" aria-live="polite">000</span>
+                <div class="label">يوم</div>
+            </div>
+            <div class="unit">
+                <span class="num" id="cd-hours" aria-live="polite">00</span>
+                <div class="label">ساعة</div>
+            </div>
+            <div class="unit">
+                <span class="num" id="cd-minutes" aria-live="polite">00</span>
+                <div class="label">دقيقة</div>
+            </div>
+            <div class="unit">
+                <span class="num" id="cd-seconds" aria-live="polite">00</span>
+                <div class="label">ثانية</div>
+            </div>
+        </div>
+
+        <div class="progress-wrap">
+            <div class="progress-meta">
+                <span>رحلتُنا إلى الفرح</span>
+                <span><strong id="cd-percent">@Model.ProgressPercent.ToString("F1")%</strong></span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@((int)Model.ProgressPercent)">
+                <div class="progress-bar" id="cd-bar" style="width: @Model.ProgressPercent.ToString("F2")%;"></div>
+            </div>
+            <div class="progress-meta" style="margin-top: 0.6rem;">
+                <span>مرّ <strong>@Model.DaysPassed</strong> يوم منذ التقينا</span>
+                <span>باقي <strong>@Model.DaysRemaining</strong> يوم على فرحنا</span>
+            </div>
+        </div>
+
+        <p class="quote" id="quote">
+            في كلِّ نَبضةٍ من قلبي اسمُكِ مكتوبٌ بالذهب،
+            ومع كلِّ شروقٍ يقتربُ يومُنا الذي طالما حلِمنا به.
+        </p>
+
+        <div class="celebration" id="celebration">
+            ✨ وصلنا · اليوم يومُنا · مبارَكٌ لنا الفرح ✨
+        </div>
+
+    </section>
+
+    <div class="signature">
+        صُنِعَ بـ <span class="heart">❤</span> لأجملِ قِصّةٍ في الكون
+    </div>
+
+</main>
+
+@section Scripts {
+    <script>
+        (function () {
+            const target = new Date(document.getElementById('countdown').dataset.target).getTime();
+
+            const elDays    = document.getElementById('cd-days');
+            const elHours   = document.getElementById('cd-hours');
+            const elMinutes = document.getElementById('cd-minutes');
+            const elSeconds = document.getElementById('cd-seconds');
+            const elPercent = document.getElementById('cd-percent');
+            const elBar     = document.getElementById('cd-bar');
+            const elCelebrate = document.getElementById('celebration');
+
+            // نقطة بداية الرحلة — يوم بداية معرفتنا
+            const startDate = new Date('2025-07-16T00:00:00').getTime();
+
+            const pad = (n, w = 2) => String(Math.max(0, n)).padStart(w, '0');
+
+            let lastSeconds = -1;
+            function tick() {
+                const now = Date.now();
+                const diff = target - now;
+
+                if (diff <= 0) {
+                    elDays.textContent    = '000';
+                    elHours.textContent   = '00';
+                    elMinutes.textContent = '00';
+                    elSeconds.textContent = '00';
+                    elBar.style.width = '100%';
+                    elPercent.textContent = '100.0%';
+                    elCelebrate.classList.add('on');
+                    launchConfetti();
+                    return false;
+                }
+
+                const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours   = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                elDays.textContent    = pad(days, 3);
+                elHours.textContent   = pad(hours);
+                elMinutes.textContent = pad(minutes);
+                elSeconds.textContent = pad(seconds);
+
+                if (seconds !== lastSeconds) {
+                    elSeconds.classList.remove('tick');
+                    void elSeconds.offsetWidth;
+                    elSeconds.classList.add('tick');
+                    lastSeconds = seconds;
+                }
+
+                const total = target - startDate;
+                const passed = now - startDate;
+                const pct = Math.max(0, Math.min(100, (passed / total) * 100));
+                elBar.style.width = pct.toFixed(3) + '%';
+                elPercent.textContent = pct.toFixed(1) + '%';
+
+                return true;
+            }
+
+            tick();
+            const timer = setInterval(() => { if (!tick()) clearInterval(timer); }, 1000);
+
+            // ====== بتلات وقلوب تتساقط ======
+            const petalsLayer = document.getElementById('petals');
+            const symbols = ['❤', '❀', '✿', '❣', '♥', '✦'];
+            const colors  = ['#ff7aa8', '#e84d83', '#f6d57a', '#ffc6dc', '#ffd9a8'];
+
+            function spawnPetal() {
+                const p = document.createElement('span');
+                p.className = 'petal';
+                p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                p.style.right = Math.random() * 100 + 'vw';
+                p.style.color = colors[Math.floor(Math.random() * colors.length)];
+                p.style.fontSize = (0.9 + Math.random() * 1.6) + 'rem';
+                const dur = 9 + Math.random() * 9;
+                p.style.animationDuration = dur + 's';
+                p.style.animationDelay = (-Math.random() * dur) + 's';
+                petalsLayer.appendChild(p);
+                setTimeout(() => p.remove(), dur * 1000 + 500);
+            }
+            const petalCount = window.matchMedia('(max-width: 540px)').matches ? 14 : 26;
+            for (let i = 0; i < petalCount; i++) spawnPetal();
+            setInterval(spawnPetal, 1200);
+
+            // ====== اقتباسات رومانسية تتبدّل ======
+            const quotes = [
+                'في كلِّ نَبضةٍ من قلبي اسمُكِ مكتوبٌ بالذهب، ومع كلِّ شروقٍ يقتربُ يومُنا الذي طالما حلِمنا به.',
+                'الحُبُّ ليسَ أن نلتقي… بل أن نعِدَ بألّا نفترقَ، ويومَ الفرحِ هو مِيثاقُنا.',
+                'أنتِ الدُّعاءُ الذي استجابَ، وأنتَ الحُلمُ الذي صارَ على بُعدِ أيّامٍ.',
+                'كلُّ ثانيةٍ تمرّ، تُقرِّبُنا من قَدَرٍ كتبَهُ اللهُ لنا قبلَ أن نَلتقي.',
+                'سأعدُّ لكِ الأيّامَ والساعاتِ، حتى يصيرَ الزمنُ نفسُهُ شريكاً في فرحتِنا.',
+                'في يومِ فرحِنا سأنظرُ إليكِ وأقول: استحقّت كلُّ لحظةِ انتظارٍ هذه النهاية الجميلة.',
+                'ما أجملَ أن يكونَ للقلبِ موعدٌ، وأن يكونَ هذا الموعد… أنتِ.'
+            ];
+            const elQuote = document.getElementById('quote');
+            let qi = 0;
+            setInterval(() => {
+                qi = (qi + 1) % quotes.length;
+                elQuote.style.opacity = '0';
+                setTimeout(() => {
+                    elQuote.textContent = quotes[qi];
+                    elQuote.style.opacity = '1';
+                }, 600);
+            }, 7000);
+
+            // ====== كونفيتي عند الوصول للفرح ======
+            function launchConfetti() {
+                for (let i = 0; i < 80; i++) {
+                    const c = document.createElement('span');
+                    c.className = 'petal';
+                    c.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    c.style.right = Math.random() * 100 + 'vw';
+                    c.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    c.style.fontSize = (1.2 + Math.random() * 2.4) + 'rem';
+                    c.style.animationDuration = (5 + Math.random() * 5) + 's';
+                    petalsLayer.appendChild(c);
+                    setTimeout(() => c.remove(), 10000);
+                }
+            }
+        })();
+    </script>
+}

@@ -27,13 +27,27 @@
         <h1 class="title">عدٌّ تنازليٌّ لأجملِ يومٍ في حياتنا</h1>
 
         <p class="subtitle">
-            من يومِ التقتْ أرواحُنا في <strong class="rose">16 / 07 / 2025</strong>،
-            ونحن نعدُّ الأيّامَ معًا...
-            <br>
-            حتى يأتي موعدُنا مع الفرحِ يومَ <strong class="gold" id="wedding-date-text">01 / 10 / 2026</strong>
+            <span id="subtitle-pre">
+                من يومِ التقتْ أرواحُنا في <strong class="rose">16 / 07 / 2025</strong>،
+                ونحن نعدُّ الأيّامَ معًا...
+                <br>
+                حتى يأتي موعدُنا مع الفرحِ يومَ <strong class="gold">01 / 10 / 2026</strong>
+            </span>
+            <span id="subtitle-post" hidden>
+                ومن يومِ فرحِنا في <strong class="gold">01 / 10 / 2026</strong>،
+                ونحن نَكتُبُ معًا سُطورَ عُمرٍ جديد...
+                <br>
+                وها نحن نعُدّ <strong class="rose" id="subtitle-next-anniv"></strong>
+            </span>
         </p>
 
         <section class="glass countdown-card" aria-label="العد التنازلي">
+            <div class="cd-target-label">
+                <span aria-hidden="true">✦</span>
+                <span id="cd-target-text">العدّ التنازلي ليومِ فرحنا</span>
+                <span aria-hidden="true">✦</span>
+            </div>
+
             <div class="countdown" data-target="2026-10-01T00:00:00" data-start="2025-07-16T00:00:00" id="countdown">
                 <div class="unit">
                     <span class="num" id="cd-days" aria-live="polite">000</span>
@@ -55,15 +69,15 @@
 
             <div class="progress-wrap">
                 <div class="progress-meta">
-                    <span>رحلتُنا إلى الفرح</span>
+                    <span id="cd-progress-label">رحلتُنا إلى الفرح</span>
                     <span><strong id="cd-percent">0.0%</strong></span>
                 </div>
                 <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                     <div class="progress-bar" id="cd-bar" style="width: 0%;"></div>
                 </div>
                 <div class="progress-meta progress-meta-bottom">
-                    <span>مرّ <strong id="days-passed">0</strong> يوم منذ التقينا</span>
-                    <span>باقي <strong id="days-remaining">0</strong> يوم على فرحنا</span>
+                    <span id="cd-meta-left">مرّ <strong id="days-passed">0</strong> يوم منذ التقينا</span>
+                    <span id="cd-meta-right">باقي <strong id="days-remaining">0</strong> يوم على فرحنا</span>
                 </div>
             </div>
 
@@ -76,6 +90,111 @@
             </div>
         </section>
 
+        <section class="milestones-section" aria-label="محطّاتُ قلوبنا">
+            <div class="milestones-header">
+                <span class="ornament">✦</span>
+                <h2 class="milestones-title">محطّاتٌ في قلوبنا</h2>
+                <span class="ornament">✦</span>
+            </div>
+            <p class="milestones-intro">
+                ثلاثُ ذكرياتٍ نَنتظِرُ أن تُتِمَّ الدُّنيا على كُلٍّ منها سَنةً كاملة...
+                <br>
+                ومع كلِّ ذكرى، يَزدادُ القلبُ يقينًا أنّ القَدَرَ كَتَبَنا.
+            </p>
+
+            <div class="milestones-grid">
+                <article class="glass milestone" data-key="first-talk" data-original="2025-07-16T00:00:00">
+                    <div class="m-glow" aria-hidden="true"></div>
+                    <div class="m-icon" aria-hidden="true">✉</div>
+                    <h3 class="m-title">أوّلُ كلامٍ بيننا</h3>
+                    <p class="m-subtitle">يومَ التقتْ أرواحُنا قبلَ أن تلتقي عيوننا</p>
+
+                    <div class="m-status">
+                        <span class="m-status-passed">في انتظار أوّل ذكرى...</span>
+                        <span class="m-status-next">العدّ للذكرى الأولى يومَ <strong>16 يوليو 2026</strong></span>
+                    </div>
+
+                    <div class="m-countdown" data-state="counting">
+                        <div class="m-cells">
+                            <div class="m-cell"><span class="m-num m-days">000</span><span class="m-label">يوم</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-hours">00</span><span class="m-label">ساعة</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-minutes">00</span><span class="m-label">دقيقة</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-seconds">00</span><span class="m-label">ثانية</span></div>
+                        </div>
+                        <div class="m-celebrate">
+                            ✨ اليوم · ذِكرانا <strong class="m-ordinal">الأولى</strong> ✨<br>
+                            <span class="m-celebrate-sub">صارَ لنا <strong class="m-since">سنةٌ كاملة</strong> على هذا اليوم</span>
+                        </div>
+                    </div>
+
+                    <p class="m-verse">في ذلك اليومِ كَتَبَ القَدَرُ أوّلَ سطرٍ من قصّتنا... ومن يومِها والكلامُ لم ينقطعْ.</p>
+                </article>
+
+                <article class="glass milestone" data-key="fatiha" data-original="2025-07-17T00:00:00">
+                    <div class="m-glow" aria-hidden="true"></div>
+                    <div class="m-icon" aria-hidden="true">۩</div>
+                    <h3 class="m-title">قراءةُ الفاتحة</h3>
+                    <p class="m-subtitle">يومَ باركَ اللهُ خُطانا</p>
+
+                    <div class="m-status">
+                        <span class="m-status-passed">في انتظار أوّل ذكرى...</span>
+                        <span class="m-status-next">العدّ للذكرى الأولى يومَ <strong>17 يوليو 2026</strong></span>
+                    </div>
+
+                    <div class="m-countdown" data-state="counting">
+                        <div class="m-cells">
+                            <div class="m-cell"><span class="m-num m-days">000</span><span class="m-label">يوم</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-hours">00</span><span class="m-label">ساعة</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-minutes">00</span><span class="m-label">دقيقة</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-seconds">00</span><span class="m-label">ثانية</span></div>
+                        </div>
+                        <div class="m-celebrate">
+                            ✨ اليوم · ذِكرانا <strong class="m-ordinal">الأولى</strong> ✨<br>
+                            <span class="m-celebrate-sub">صارَ لنا <strong class="m-since">سنةٌ كاملة</strong> على هذا اليوم</span>
+                        </div>
+                    </div>
+
+                    <p class="m-verse">بفاتحةِ الكتابِ بدأنا، وبالدُّعاءِ مَشينا، فكانت كلُّ خطوةٍ بعدها رَحمةً ونورًا.</p>
+                </article>
+
+                <article class="glass milestone" data-key="engagement" data-original="2025-09-06T00:00:00">
+                    <div class="m-glow" aria-hidden="true"></div>
+                    <div class="m-icon" aria-hidden="true">♕</div>
+                    <h3 class="m-title">ليلةُ الشَّبكة</h3>
+                    <p class="m-subtitle">يومَ صارَ الوعدُ خاتمًا في يدِكِ</p>
+
+                    <div class="m-status">
+                        <span class="m-status-passed">في انتظار أوّل ذكرى...</span>
+                        <span class="m-status-next">العدّ للذكرى الأولى يومَ <strong>6 سبتمبر 2026</strong></span>
+                    </div>
+
+                    <div class="m-countdown" data-state="counting">
+                        <div class="m-cells">
+                            <div class="m-cell"><span class="m-num m-days">000</span><span class="m-label">يوم</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-hours">00</span><span class="m-label">ساعة</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-minutes">00</span><span class="m-label">دقيقة</span></div>
+                            <div class="m-sep" aria-hidden="true">·</div>
+                            <div class="m-cell"><span class="m-num m-seconds">00</span><span class="m-label">ثانية</span></div>
+                        </div>
+                        <div class="m-celebrate">
+                            ✨ اليوم · ذِكرانا <strong class="m-ordinal">الأولى</strong> ✨<br>
+                            <span class="m-celebrate-sub">صارَ لنا <strong class="m-since">سنةٌ كاملة</strong> على هذا اليوم</span>
+                        </div>
+                    </div>
+
+                    <p class="m-verse">ألبستُكِ خاتمًا صغيرًا... وألبستِني قلبًا لا يَسَعُهُ كَوْنٌ.</p>
+                </article>
+            </div>
+        </section>
+
         <div class="signature">
             صُنِعَ بـ <span class="heart">❤</span> لأجملِ قِصَّةٍ في الكون
         </div>
@@ -83,9 +202,102 @@
 
     <script>
         (function () {
+            // ====== أدوات مساعدة ======
+            const arabicMonths = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+            const ordinalMap = {
+                1:"الأولى",2:"الثانية",3:"الثالثة",4:"الرابعة",5:"الخامسة",
+                6:"السادسة",7:"السابعة",8:"الثامنة",9:"التاسعة",10:"العاشرة",
+                11:"الحادية عشرة",12:"الثانية عشرة",13:"الثالثة عشرة",14:"الرابعة عشرة",15:"الخامسة عشرة",
+                16:"السادسة عشرة",17:"السابعة عشرة",18:"الثامنة عشرة",19:"التاسعة عشرة",20:"العشرون"
+            };
+            const ordinal = (n) => ordinalMap[n] || ("الـ" + n);
+
+            const pad = (n, w) => String(Math.max(0, n)).padStart(w, "0");
+            const formatArDate = (d) => d.getDate() + " " + arabicMonths[d.getMonth()] + " " + d.getFullYear();
+
+            const yearsWord = (n) => {
+                if (n === 0) return "";
+                if (n === 1) return "سنةٌ كاملة";
+                if (n === 2) return "سنتانِ كاملتانِ";
+                if (n >= 3 && n <= 10) return n + " سنواتٍ كاملة";
+                return n + " سنةً كاملة";
+            };
+
+            const yearsShort = (n) => {
+                if (n === 1) return "سنةٌ";
+                if (n === 2) return "سنتانِ";
+                if (n >= 3 && n <= 10) return n + " سنواتٍ";
+                return n + " سنةً";
+            };
+
+            function nextAnniversary(orig, now) {
+                const next = new Date(now.getFullYear(), orig.getMonth(), orig.getDate(),
+                                      orig.getHours(), orig.getMinutes(), orig.getSeconds());
+                if (next.getTime() <= now.getTime()) {
+                    next.setFullYear(now.getFullYear() + 1);
+                }
+                return next;
+            }
+
+            function yearsCompleted(orig, now) {
+                let y = now.getFullYear() - orig.getFullYear();
+                const thisYearAnniv = new Date(now.getFullYear(), orig.getMonth(), orig.getDate(),
+                                                orig.getHours(), orig.getMinutes(), orig.getSeconds());
+                if (now.getTime() < thisYearAnniv.getTime()) y--;
+                return Math.max(0, y);
+            }
+
+            function isAnniversaryToday(orig, now) {
+                return orig.getMonth() === now.getMonth() && orig.getDate() === now.getDate();
+            }
+
+            // ====== طبقة البتلات ======
+            const petalsLayer = document.getElementById("petals");
+            const symbols = ["❤", "❀", "✿", "❣", "♥", "✦"];
+            const colors = ["#ff7aa8", "#e84d83", "#f6d57a", "#ffc6dc", "#ffd9a8"];
+
+            function spawnPetal(lifetimeMultiplier) {
+                const petal = document.createElement("span");
+                const duration = 5 + Math.random() * 5 * (lifetimeMultiplier || 1.8);
+                petal.className = "petal";
+                petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                petal.style.right = Math.random() * 100 + "vw";
+                petal.style.color = colors[Math.floor(Math.random() * colors.length)];
+                petal.style.fontSize = (0.9 + Math.random() * 1.6) + "rem";
+                petal.style.animationDuration = duration + "s";
+                petal.style.animationDelay = (-Math.random() * duration) + "s";
+                petalsLayer.appendChild(petal);
+                setTimeout(function () { petal.remove(); }, duration * 1000 + 500);
+            }
+
+            function sparkleBurst(rect) {
+                for (let i = 0; i < 22; i++) {
+                    const s = document.createElement("span");
+                    s.className = "petal";
+                    s.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    s.style.position = "fixed";
+                    s.style.right = (window.innerWidth - rect.right + Math.random() * rect.width) + "px";
+                    s.style.top = (rect.top + Math.random() * 60) + "px";
+                    s.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    s.style.fontSize = (1 + Math.random() * 1.6) + "rem";
+                    s.style.animationDuration = (4 + Math.random() * 4) + "s";
+                    petalsLayer.appendChild(s);
+                    setTimeout(function () { s.remove(); }, 8000);
+                }
+            }
+
+            function launchConfetti() {
+                for (let i = 0; i < 90; i++) spawnPetal(1);
+            }
+
+            const petalCount = window.matchMedia("(max-width: 540px)").matches ? 14 : 26;
+            for (let i = 0; i < petalCount; i++) spawnPetal(1.8);
+            setInterval(spawnPetal, 1200);
+
+            // ====== العدّ التنازلي الأساسي (الفرح ثم ذكرى الزواج) ======
             const countdown = document.getElementById("countdown");
-            const target = new Date(countdown.dataset.target).getTime();
-            const startDate = new Date(countdown.dataset.start).getTime();
+            const weddingDate = new Date(countdown.dataset.target);
+            const startDate = new Date(countdown.dataset.start);
 
             const elDays = document.getElementById("cd-days");
             const elHours = document.getElementById("cd-hours");
@@ -94,61 +306,105 @@
             const elPercent = document.getElementById("cd-percent");
             const elBar = document.getElementById("cd-bar");
             const elCelebrate = document.getElementById("celebration");
-            const elDaysPassed = document.getElementById("days-passed");
-            const elDaysRemaining = document.getElementById("days-remaining");
+            const elTargetText = document.getElementById("cd-target-text");
+            const elProgressLabel = document.getElementById("cd-progress-label");
+            const elMetaLeft = document.getElementById("cd-meta-left");
+            const elMetaRight = document.getElementById("cd-meta-right");
+            const elSubPre = document.getElementById("subtitle-pre");
+            const elSubPost = document.getElementById("subtitle-post");
+            const elSubNextAnniv = document.getElementById("subtitle-next-anniv");
             const progress = document.querySelector(".progress");
-            const petalsLayer = document.getElementById("petals");
-            const elQuote = document.getElementById("quote");
 
-            const quotes = [
-                "في كلِّ نبضةٍ من قلبي اسمُكِ مكتوبٌ بالذهب، ومع كلِّ شروقٍ يقتربُ يومُنا الذي طالما حلمنا به.",
-                "الحبُّ ليس أن نلتقي... بل أن نعِدَ بألّا نفترقَ، ويومَ الفرحِ هو ميثاقُنا.",
-                "أنتِ الدعاءُ الذي استُجيبَ، وأنتَ الحُلمُ الذي صارَ على بُعدِ أيامٍ.",
-                "كلُّ ثانيةٍ تمرّ، تُقرِّبُنا من قَدَرٍ كتبهُ اللهُ لنا قبلَ أن نلتقي.",
-                "سأعدُّ لكِ الأيامَ والساعاتِ، حتى يصيرَ الزمنُ نفسهُ شريكًا في فرحتِنا.",
-                "في يومِ فرحِنا سأنظرُ إليكِ وأقول: استحقّت كلُّ لحظةِ انتظارٍ هذه النهاية الجميلة.",
-                "ما أجملَ أن يكونَ للقلبِ موعدٌ، وأن يكونَ هذا الموعد... أنتِ."
-            ];
-
-            const symbols = ["❤", "❀", "✿", "❣", "♥", "✦"];
-            const colors = ["#ff7aa8", "#e84d83", "#f6d57a", "#ffc6dc", "#ffd9a8"];
-
-            const pad = (n, width) => String(Math.max(0, n)).padStart(width, "0");
-            const totalJourney = Math.max(1, target - startDate);
             let lastSeconds = -1;
-            let quoteIndex = 0;
+            let weddingConfettiFired = false;
+            let lastMainCelebratedYear = null;
 
-            function updateCountdown() {
-                const now = Date.now();
-                const diff = target - now;
-                const daysPassed = Math.max(0, Math.floor((now - startDate) / 86400000));
-                const daysRemaining = Math.max(0, Math.ceil(diff / 86400000));
-                const percent = Math.max(0, Math.min(100, ((now - startDate) / totalJourney) * 100));
+            function tickMain() {
+                const now = new Date();
+                const nowMs = now.getTime();
+                const diffToWedding = weddingDate.getTime() - nowMs;
 
-                elDaysPassed.textContent = String(daysPassed);
-                elDaysRemaining.textContent = String(daysRemaining);
-                elPercent.textContent = percent.toFixed(1) + "%";
-                elBar.style.width = percent.toFixed(3) + "%";
-                progress.setAttribute("aria-valuenow", String(Math.round(percent)));
+                let target, progressFrom, progressTo;
 
-                if (diff <= 0) {
-                    elDays.textContent = "000";
-                    elHours.textContent = "00";
-                    elMinutes.textContent = "00";
-                    elSeconds.textContent = "00";
-                    elBar.style.width = "100%";
-                    elPercent.textContent = "100.0%";
-                    elCelebrate.classList.add("on");
-                    launchConfetti();
-                    return false;
+                if (diffToWedding > 0) {
+                    // ===== قبل الفرح =====
+                    target = weddingDate;
+                    progressFrom = startDate;
+                    progressTo = weddingDate;
+
+                    elTargetText.textContent = "العدّ التنازلي ليومِ فرحنا";
+                    elProgressLabel.textContent = "رحلتُنا إلى الفرح";
+
+                    const daysSinceStart = Math.floor((nowMs - startDate.getTime()) / 86400000);
+                    const daysToWedding = Math.ceil(diffToWedding / 86400000);
+                    elMetaLeft.innerHTML = "مرّ <strong>" + daysSinceStart + "</strong> يوم منذ التقينا";
+                    elMetaRight.innerHTML = "باقي <strong>" + daysToWedding + "</strong> يوم على فرحنا";
+
+                    elSubPre.hidden = false;
+                    elSubPost.hidden = true;
+                    elCelebrate.classList.remove("on");
+                } else {
+                    // ===== يوم الفرح فما بعد =====
+                    const yearsMarried = yearsCompleted(weddingDate, now);
+                    const isAnnivToday = isAnniversaryToday(weddingDate, now);
+                    const nextAnniv = nextAnniversary(weddingDate, now);
+
+                    target = nextAnniv;
+                    progressTo = nextAnniv;
+                    progressFrom = new Date(nextAnniv);
+                    progressFrom.setFullYear(nextAnniv.getFullYear() - 1);
+
+                    elSubPre.hidden = true;
+                    elSubPost.hidden = false;
+                    const nextOrd = ordinal(yearsMarried + 1);
+                    elSubNextAnniv.innerHTML = "لذكرانا " + nextOrd + " يومَ " + formatArDate(nextAnniv);
+
+                    if (yearsMarried === 0) {
+                        elTargetText.textContent = "وصلنا · والعدّ مستمرٌّ لأوّل ذكرى زواج";
+                        elProgressLabel.textContent = "عامُنا الأوّل معًا";
+                    } else {
+                        elTargetText.textContent = "العدّ لذكرى زواجنا " + nextOrd;
+                        elProgressLabel.textContent = "عامُنا الـ" + (yearsMarried + 1) + " معًا";
+                    }
+
+                    const daysSinceWedding = Math.floor((nowMs - weddingDate.getTime()) / 86400000);
+                    const daysToNext = Math.ceil((nextAnniv.getTime() - nowMs) / 86400000);
+                    if (yearsMarried === 0) {
+                        elMetaLeft.innerHTML = "مرّ على فرحنا <strong>" + daysSinceWedding + "</strong> يوم";
+                    } else {
+                        elMetaLeft.innerHTML = "مرّ على فرحنا <strong>" + yearsShort(yearsMarried) + "</strong>";
+                    }
+                    elMetaRight.innerHTML = "باقي <strong>" + daysToNext + "</strong> يوم على ذكرانا " + nextOrd;
+
+                    if (!weddingConfettiFired) {
+                        weddingConfettiFired = true;
+                        elCelebrate.classList.add("on");
+                        launchConfetti();
+                    }
+                    if (isAnnivToday && yearsMarried >= 1 && lastMainCelebratedYear !== yearsMarried) {
+                        lastMainCelebratedYear = yearsMarried;
+                        launchConfetti();
+                    }
+                    if (!isAnnivToday) {
+                        elCelebrate.classList.remove("on");
+                    } else {
+                        elCelebrate.classList.add("on");
+                        if (yearsMarried >= 1) {
+                            elCelebrate.innerHTML = "✨ اليوم · ذكرى زواجنا " + ordinal(yearsMarried) + " ✨";
+                        } else {
+                            elCelebrate.innerHTML = "✨ وصلنا · اليوم يومُنا · مباركٌ لنا الفرح ✨";
+                        }
+                    }
                 }
 
+                // عرض العدّاد
+                const diff = target.getTime() - nowMs;
                 const days = Math.floor(diff / 86400000);
                 const hours = Math.floor((diff / 3600000) % 24);
                 const minutes = Math.floor((diff / 60000) % 60);
                 const seconds = Math.floor((diff / 1000) % 60);
 
-                elDays.textContent = pad(days, 3);
+                elDays.textContent = pad(Math.max(0, days), 3);
                 elHours.textContent = pad(hours, 2);
                 elMinutes.textContent = pad(minutes, 2);
                 elSeconds.textContent = pad(seconds, 2);
@@ -160,56 +416,102 @@
                     lastSeconds = seconds;
                 }
 
-                return true;
+                // شريط التقدّم
+                const total = progressTo.getTime() - progressFrom.getTime();
+                const passedMs = nowMs - progressFrom.getTime();
+                const pct = Math.max(0, Math.min(100, (passedMs / total) * 100));
+                elBar.style.width = pct.toFixed(3) + "%";
+                elPercent.textContent = pct.toFixed(1) + "%";
+                progress.setAttribute("aria-valuenow", String(Math.round(pct)));
             }
 
-            function spawnPetal(lifetimeMultiplier) {
-                const petal = document.createElement("span");
-                const duration = 5 + Math.random() * 5 * (lifetimeMultiplier || 1.8);
+            tickMain();
+            setInterval(tickMain, 1000);
 
-                petal.className = "petal";
-                petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                petal.style.right = Math.random() * 100 + "vw";
-                petal.style.color = colors[Math.floor(Math.random() * colors.length)];
-                petal.style.fontSize = 0.9 + Math.random() * 1.6 + "rem";
-                petal.style.animationDuration = duration + "s";
-                petal.style.animationDelay = -Math.random() * duration + "s";
-                petalsLayer.appendChild(petal);
+            // ====== المحطّات السنوية ======
+            const milestoneCards = document.querySelectorAll(".milestone");
+            const milestoneCelebratedYears = new WeakMap();
 
-                setTimeout(function () {
-                    petal.remove();
-                }, duration * 1000 + 500);
-            }
+            function tickMilestone(card) {
+                const orig = new Date(card.dataset.original);
+                const now = new Date();
+                const nowMs = now.getTime();
 
-            function launchConfetti() {
-                for (let i = 0; i < 80; i += 1) {
-                    spawnPetal(1);
+                const cdEl = card.querySelector(".m-countdown");
+                const dEl = card.querySelector(".m-days");
+                const hEl = card.querySelector(".m-hours");
+                const mEl = card.querySelector(".m-minutes");
+                const sEl = card.querySelector(".m-seconds");
+                const passedEl = card.querySelector(".m-status-passed");
+                const nextEl = card.querySelector(".m-status-next");
+                const ordEl = card.querySelector(".m-ordinal");
+                const sinceEl = card.querySelector(".m-since");
+
+                const years = yearsCompleted(orig, now);
+                const isToday = isAnniversaryToday(orig, now);
+                const nextAnniv = nextAnniversary(orig, now);
+
+                if (years === 0) {
+                    passedEl.textContent = "في انتظار أوّل ذكرى...";
+                } else {
+                    passedEl.textContent = "مرّ علينا " + yearsWord(years);
+                }
+
+                if (isToday) {
+                    cdEl.dataset.state = "today";
+                    const todayYears = Math.max(1, years);
+                    if (ordEl) ordEl.textContent = ordinal(todayYears);
+                    if (sinceEl) sinceEl.textContent = yearsWord(todayYears);
+                    nextEl.innerHTML = "<span style=\"color: var(--gold-300);\">اليوم يومُنا ❤</span>";
+
+                    const cel = milestoneCelebratedYears.get(card);
+                    if (cel !== todayYears) {
+                        milestoneCelebratedYears.set(card, todayYears);
+                        card.classList.add("reached");
+                        sparkleBurst(card.getBoundingClientRect());
+                    }
+                } else {
+                    cdEl.dataset.state = "counting";
+                    card.classList.remove("reached");
+                    const nextOrd = ordinal(years + 1);
+                    nextEl.innerHTML = "العدّ للذكرى " + nextOrd + " يومَ <strong>" + formatArDate(nextAnniv) + "</strong>";
+
+                    const diff = nextAnniv.getTime() - nowMs;
+                    const days = Math.floor(diff / 86400000);
+                    const hours = Math.floor((diff / 3600000) % 24);
+                    const minutes = Math.floor((diff / 60000) % 60);
+                    const seconds = Math.floor((diff / 1000) % 60);
+                    dEl.textContent = pad(days, 3);
+                    hEl.textContent = pad(hours, 2);
+                    mEl.textContent = pad(minutes, 2);
+                    sEl.textContent = pad(seconds, 2);
                 }
             }
 
-            function rotateQuotes() {
+            milestoneCards.forEach(tickMilestone);
+            setInterval(function () { milestoneCards.forEach(tickMilestone); }, 1000);
+
+            // ====== اقتباسات رومانسية تتبدّل ======
+            const quotes = [
+                "في كلِّ نبضةٍ من قلبي اسمُكِ مكتوبٌ بالذهب، ومع كلِّ شروقٍ يقتربُ يومُنا الذي طالما حلمنا به.",
+                "الحبُّ ليس أن نلتقي... بل أن نعِدَ بألّا نفترقَ، ويومَ الفرحِ هو ميثاقُنا.",
+                "أنتِ الدعاءُ الذي استُجيبَ، وأنتَ الحُلمُ الذي صارَ على بُعدِ أيامٍ.",
+                "كلُّ ثانيةٍ تمرّ، تُقرِّبُنا من قَدَرٍ كتبهُ اللهُ لنا قبلَ أن نلتقي.",
+                "سأعدُّ لكِ الأيامَ والساعاتِ، حتى يصيرَ الزمنُ نفسهُ شريكًا في فرحتِنا.",
+                "في كلِّ سنةٍ تمرُّ، أكتشفُ أنّ الحبَّ يكبرُ ولا يَهرَم.",
+                "ما أجملَ أن يكونَ للقلبِ موعدٌ، وأن يكونَ هذا الموعد... أنتِ.",
+                "سَنواتٌ تَمضي، وكلُّ سنةٍ تَزيدُكِ في عَيني نورًا، وفي قَلبي سَكَنًا."
+            ];
+            const elQuote = document.getElementById("quote");
+            let quoteIndex = 0;
+            setInterval(function () {
                 quoteIndex = (quoteIndex + 1) % quotes.length;
                 elQuote.style.opacity = "0";
                 setTimeout(function () {
                     elQuote.textContent = quotes[quoteIndex];
                     elQuote.style.opacity = "1";
                 }, 600);
-            }
-
-            const petalCount = window.matchMedia("(max-width: 540px)").matches ? 14 : 26;
-            for (let i = 0; i < petalCount; i += 1) {
-                spawnPetal(1.8);
-            }
-
-            updateCountdown();
-            const timer = setInterval(function () {
-                if (!updateCountdown()) {
-                    clearInterval(timer);
-                }
-            }, 1000);
-
-            setInterval(spawnPetal, 1200);
-            setInterval(rotateQuotes, 7000);
+            }, 7000);
         })();
     </script>
 </body>
